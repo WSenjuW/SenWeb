@@ -1,0 +1,44 @@
+#skillsBox {
+  width: 100%;
+  height: 100%;
+  background: #121212; /* Fallback for browsers that don't support gradients */
+  background: linear-gradient(
+    135deg,
+    #2c0d2c 25%,
+    #380547 25%,
+    #380547 50%,
+    #2c0d2c 50%,
+    #2c0d2c 75%,
+    #380547 75%,
+    #380547
+  );
+  background-size: 40px 40px;
+
+  /* Animation */
+  animation: move 6s linear infinite;
+}
+
+#skillsBox::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    #000000d7 70%,
+    #0000009a 80%,
+    #0f0f0f0e 100%
+  );
+  z-index: 2;
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}

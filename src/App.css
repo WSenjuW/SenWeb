@@ -1,0 +1,28 @@
+#App{
+    width:100vw;
+    height: 100vh;
+
+}
+
+button:hover{
+    border: none;
+    outline: none;
+    border-radius: 0;
+}
+
+button:active{
+    border: none;
+    outline: none; 
+    border-radius:0;
+}
+
+button:focus-visible{
+    border: none;
+    outline: none; 
+    border-radius:0;
+}
+ button::-moz-focus-outer{
+    border: 0;
+    outline: none;
+    border-radius: 0;
+ }
