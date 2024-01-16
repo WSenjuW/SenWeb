@@ -1,14 +1,25 @@
+#aboutMeBox::-webkit-scrollbar {
+  display: none;
+}
+
 #aboutMeBox {
   width: 100vw;
+  height: 100%;
   min-height: 100vh;
   position: relative;
   /* Add your background pattern here */
-  background-image: radial-gradient(#00eeff3a 2px, transparent 0);
+  background-image: radial-gradient(#6c84b983 2px, transparent 0);
   background-size: 30px 30px;
   background-position: 0% 0%;
   animation: moveRight 10s linear infinite;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden auto;
+  z-index: 0;
+  scroll-snap-type: y mandatory;
 }
+
 #aboutMeBox::after {
   content: "";
   width: 100%;
@@ -17,10 +28,11 @@
   background-position: 2% 0;
   left: 0;
   top: 0;
-  background-image: radial-gradient(#00eeff3a 2px, transparent 0);
+  background-image: radial-gradient(#6c84b983 2px, transparent 0);
   background-size: 30px 30px;
   background-position: 0% 0%;
   animation: moveRightV2 10s linear infinite;
+  z-index: 0;
 }
 
 #aboutMeBox::before {
@@ -30,14 +42,8 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    #000000d7 70%,
-    #0000009a 80%,
-    #0f0f0f0e 100%
-  );
-  z-index: 2;
+  background: linear-gradient(0deg, #0000009c 50%, transparent 60%);
+  z-index: 1;
 }
 
 @keyframes moveRightV2 {
@@ -65,5 +71,73 @@
   }
   100% {
     background-position: 20% 0;
+  }
+}
+
+#navSectionIndex {
+  width: 10px;
+  height: 200px;
+  right: 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#indexOptionBtn {
+  transition: 0.3s;
+  width: 10px;
+  height: 20%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    #00ff73 20%,
+    #00ff73 80%,
+    transparent 80%
+  );
+}
+
+#indexOptionBtnSelected {
+  width: 10px;
+  height: 40%;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+  background: linear-gradient(
+    45deg,
+    transparent 10%,
+    #f700ff 10%,
+    #f700ff 90%,
+    transparent 90%
+  );
+}
+
+#mask {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+
+@media only screen and (max-width: 800px) {
+  #navSectionIndex {
+    right: 8px;
+    width: 6px;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-height: 720px) {
+  #navSectionIndex {
+    right: 3px;
+    width: 6px;
+    overflow: hidden;
   }
 }

@@ -1,0 +1,518 @@
+#modal-project {
+  width: calc(50vw - 100px);
+  max-width: 540px;
+  min-width: 200px;
+  padding: 20px 4vw;
+  height: max-content;
+  border-radius: 4px;
+  background: #191825;
+  border: solid 1px #00D7FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  animation: start-modal-project 0.3s linear;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes start-modal-project {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#btn-close-modal {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #84c4ff1c;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: 0.3s;
+}
+
+#btn-close-modal:hover {
+  background-color: #3f000091;
+}
+
+#btn-close-modal:active {
+  transform: scale(0.9);
+}
+
+#title-img-buttons-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+#title-modal-project {
+  width: 100%;
+  height: max-content;
+  margin: 0;
+  text-align: center;
+  font-family: "Splash", cursive;
+  color: #00D7FF;
+  animation: start-title-modal-project 0.3s 0.3s linear both,
+    title-modal-project 8s 1s linear infinite;
+  animation-timing-function: linear, steps(2, end);
+}
+
+@keyframes start-title-modal-project {
+  from {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes title-modal-project {
+  0% {
+    text-shadow: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  1% {
+    text-shadow: 10px 10px #33ff00;
+    font-family: "Courier New", Courier, monospace;
+  }
+  2% {
+    text-shadow: 10px 0px #00ffea;
+    font-family: "Iceland", sans-serif;
+  }
+  3% {
+    text-shadow: 10px 0px #ae00ff;
+    color: #00f0ff;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  4% {
+    text-shadow: 10px 0px #0066ff, -10px -5px yellowgreen;
+    color: tomato;
+    font-family: "Iceland", sans-serif;
+  }
+  5% {
+    text-shadow: -10px -6px #fffb00;
+    color: rebeccapurple;
+    font-family: "Splash", cursive;
+  }
+  6% {
+    text-shadow: 10px 0px #1eff00;
+    font-family: "Iceland", sans-serif;
+  }
+  7% {
+    text-shadow: none;
+    color: #15ff00;
+
+    font-family: "Iceland", sans-serif;
+  }
+  8% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Splash", cursive;
+  }
+  23% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Splash", cursive;
+  }
+  24% {
+    text-shadow: -5px -5px #ff0000;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  25% {
+    text-shadow: 10px 10px #33ff00;
+    font-family: "Courier New", Courier, monospace;
+  }
+  26% {
+    text-shadow: 10px 0px #00ffea;
+    font-family: "Iceland", sans-serif;
+  }
+  27% {
+    text-shadow: 10px 0px #ae00ff;
+    color: #00f0ff;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  28% {
+    text-shadow: 10px 0px #0066ff, -10px -5px yellowgreen;
+    color: tomato;
+    font-family: "Iceland", sans-serif;
+  }
+  29% {
+    text-shadow: -10px -6px #fffb00;
+    color: rebeccapurple;
+    font-family: "Splash", cursive;
+  }
+  30% {
+    text-shadow: 10px 0px #1eff00;
+    font-family: "Iceland", sans-serif;
+    color: #ff00f5;
+  }
+  31% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-weight: 400;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  52% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-weight: 400;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  53% {
+    text-shadow: none;
+    font-family: "Courier New", Courier, monospace;
+  }
+  54% {
+    text-shadow: 10px 10px #33ff00;
+    font-family: "Courier New", Courier, monospace;
+  }
+  55% {
+    text-shadow: 10px 0px #00ffea;
+    font-family: "Iceland", sans-serif;
+  }
+  56% {
+    text-shadow: 10px 0px #ae00ff;
+    color: #00f0ff;
+    font-family: "Chakra Petch", sans-serif;
+  }
+  57% {
+    text-shadow: 10px 0px #0066ff, -10px -5px yellowgreen;
+    color: tomato;
+    font-family: "Iceland", sans-serif;
+  }
+  58% {
+    text-shadow: -10px -6px #fffb00;
+    color: rebeccapurple;
+    font-family: "Splash", cursive;
+  }
+  58% {
+    text-shadow: 10px 0px #00e1ff;
+    font-family: "Iceland", sans-serif;
+  }
+  59% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Iceland", sans-serif;
+  }
+  70% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Iceland", sans-serif;
+  }
+  71% {
+    text-shadow: -5px -5px #ff0000;
+    font-family: "Splash", cursive;
+  }
+  72% {
+    text-shadow: 10px 10px #33ff00;
+    font-family: "Courier New", Courier, monospace;
+  }
+  73% {
+    text-shadow: 10px 0px #00ffea;
+    font-family: "Iceland", sans-serif;
+  }
+  74% {
+    text-shadow: 10px 0px #ae00ff;
+    color: #ff0800;
+
+    font-family: "Chakra Petch", sans-serif;
+  }
+  75% {
+    text-shadow: 10px 0px #0066ff, -10px -5px yellowgreen;
+    color: tomato;
+    font-family: "Iceland", sans-serif;
+  }
+  76% {
+    text-shadow: -10px -6px #fffb00;
+    color: rebeccapurple;
+    font-family: "Splash", cursive;
+  }
+  77% {
+    text-shadow: 10px 0px #0099ff;
+    color: pink;
+    font-family: "Iceland", sans-serif;
+  }
+  78% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 100;
+  }
+  100% {
+    text-shadow: none;
+    color: #00D7FF;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 100;
+  }
+}
+
+#img-box-modal-project {
+  width: 100%;
+  height: 160px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: start-img-box-modal-project 0.2s 0.6s linear both;
+}
+
+#img-modal-project {
+  position: absolute;
+  width: 110%;
+  height: auto;
+  left: 0;
+  top: 0;
+}
+
+#img-link-modal-project {
+  background-color: #808080;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 6em;
+  transition: 0.3s;
+}
+
+#img-link-modal-project:hover {
+  opacity: 0.8;
+}
+
+#buttons-modal-box {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#btn-modal-project {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  border-radius: 3px;
+  background-color: #865dff;
+  color: #f1f1f1;
+  transition: 0.2s;
+  animation: start-btn-modal-project 0.2s 0.9s linear both;
+}
+
+@keyframes start-btn-modal-project {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+#btn-modal-project:hover {
+  color: #f1f1f1;
+  background-color: #ff0000;
+}
+
+#frameworks-box {
+  width: max-content;
+  display: flex;
+  gap: 6px;
+}
+
+.p-FW-project {
+  background-color: #865dff;
+  color: #1eff00;
+  margin: 0;
+  width: max-content;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: start-btn-modal-project 0.2s 0.2s linear both;
+}
+
+@keyframes start-img-box-modal-project {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+#description-modal-project {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: start-description-modal-project 0.2s 0.9s linear both;
+}
+
+@keyframes start-description-modal-project {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#blur-modal {
+  display: none;
+}
+
+#description-project {
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  font-family: "Chakra Petch", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00D7FF;
+}
+
+#description-content-modal-project {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  padding: 0;
+  font-family: "Chakra Petch", sans-serif;
+  margin: 0;
+  color: #00D7FF;
+}
+
+#info-created-modal-project {
+  width: max-content;
+  height: 26px;
+  font-size: 0.8em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  font-family: "Chakra Petch", sans-serif;
+  color: #00D7FF;
+}
+
+@media only screen and (max-width: 1160px) {
+  #title-modal-project {
+    font-size: 3em;
+  }
+  
+  #description-project {
+    font-size: 1.5em;
+  }
+  #description-content-modal-project {
+    font-size: 1em;
+  }
+  #info-created-modal-project {
+    font-size: .9em;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  #modal-project {
+    width: 80%;
+    height: max-content;
+    padding: 8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 0;
+    max-width: 500px;
+    z-index: 2;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  #description-modal-project {
+    height: auto;
+  }
+
+  #modal-project::after {
+    display: none;
+  }
+  #blur-modal {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000009c;
+    backdrop-filter: blur(3px);
+    z-index: 2;
+  }
+  #btn-close-modal {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: #00000028;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+
+  #title-img-buttons-box{
+    height: 100% !important;
+  }
+
+  #modal-project {
+    width: 70%;
+    padding: 3vh 4vw;
+    height: 70vh;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  #modal-project {
+    flex-direction: row;
+  }
+
+  #title-img-buttons-box {
+    width: 48%;
+    height: 70%;
+    justify-content: space-evenly;
+  }
+
+  #description-modal-project {
+    width: 48%;
+    height: max-content;
+  }
+}

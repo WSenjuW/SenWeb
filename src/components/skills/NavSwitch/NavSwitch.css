@@ -1,0 +1,96 @@
+#nav-skill-box {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  position: relative;
+}
+
+#nav-option-dev,
+#nav-option-Ill {
+  padding: 10px 20px;
+  width: auto;
+  height: 50px;
+  background: linear-gradient(45deg, transparent 5%, #ffffff2a 5%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Iceland", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  background-color: transparent;
+  user-select: none;
+}
+
+#nav-option-Ill {
+  background: linear-gradient(45deg, #ffffff2a 95%, transparent 95%);
+}
+
+#nav-option-dev:hover {
+  animation: nav-option-hover 0.2s linear both;
+  animation-timing-function: steps(2, end);
+}
+#nav-option-Ill:hover {
+  animation: nav-option-hover 0.2s linear both;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes nav-option-hover {
+  0% {
+    font-family: arial;
+    text-shadow: -3px -3px #ffe600, 5px 5px #ff0000;
+  }
+  25% {
+    text-shadow: 6px 6px #03f7ffb7;
+    font-family: "Iceland", sans-serif;
+  }
+  50% {
+    font-family: "Iceland", sans-serif;
+    text-shadow: -3px -3px #ff6600;
+  }
+  75% {
+    text-shadow: -3px -3px #f703ff;
+    font-family: "Splash", cursive;
+  }
+  90% {
+    text-shadow: 0px -4px #09ff00;
+    font-family: "Splash", cursive;
+  }
+  100% {
+    font-family: "Iceland", sans-serif;
+    text-shadow: none;
+  }
+}
+
+#bar-middle-nav {
+  width: 5px;
+  height: 140%;
+  background-color: #00ff0d;
+}
+
+
+@media only screen and (max-height: 500px) {
+  #nav-option-dev,
+  #nav-option-Ill {
+    width: 130px;
+    height: 40px;
+  }
+  #nav-skill-box {
+    flex-direction: column;
+  }
+  #bar-middle-nav {
+    width: 110%;
+    height: 5px;
+    background-color: #00ff0d;
+  }
+
+  #nav-option-dev {
+    background: linear-gradient(-45deg, #ffffff2a 95%, transparent 95%);
+  }
+
+  #nav-option-Ill {
+    background: linear-gradient(135deg, #ffffff2a 95%, transparent 95%);
+  }
+} 

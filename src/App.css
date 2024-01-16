@@ -1,7 +1,17 @@
+::selection{
+    color: #00bcf0;
+    background-color: yellow;
+  }
+
+
 #App{
     width:100vw;
     height: 100vh;
-
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 button:hover{

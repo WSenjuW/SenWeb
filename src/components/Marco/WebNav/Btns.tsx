@@ -38,11 +38,12 @@ const BtnOption: FC<propsOption> = ({
     <button
       ref={btnRef}
       id="btnOption"
+      content={name}
       onClick={() => {
         setShowNav(!showNav);
       }}
     >
-      <Link id="pOption" to={route}>
+      <Link id="pOption" className={name} to={route}>
         {name}
       </Link>
     </button>

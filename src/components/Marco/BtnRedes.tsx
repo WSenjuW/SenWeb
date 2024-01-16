@@ -25,7 +25,7 @@ const socialNetworksList: Array<SNE> = [
   {
     name: "INSTAGRAM",
     id: 1,
-    url: "https://www.instagram.com/wsenjuw/",
+    url: "https://www.instagram.com/bt_w4ve/",
     element: <IoLogoInstagram />,
   },
   {
@@ -47,25 +47,31 @@ export const BtnSocialNetworks = () => {
 
   useEffect(() => {
     function changeSN(): void {
-      if (  socialNetwork === socialNetworksList.length - 1 ) {
+      if (socialNetwork === socialNetworksList.length - 1) {
         setSocialNetwork(0);
       } else {
         setSocialNetwork(socialNetwork + 1);
       }
     }
     setTimeout(changeSN, 3000);
-    
   }, [socialNetwork]);
 
   return (
-    <IconContext.Provider value={{ color: "#00FFA3", size: "3em" }}>
-        <a
-          id="linkA"
-          target="_Blank"
-          href={socialNetworksList[socialNetwork]['url']}
-        >
-        {socialNetworksList[socialNetwork].element}
-        </a>
+    <IconContext.Provider
+      value={{
+        color: "#00FFA3",
+        size: "3em",
+      }}
+    >
+      <a
+        id="linkA"
+        target="_Blank"
+        href={socialNetworksList[socialNetwork]["url"]}
+      >
+        <IconContext.Provider value={{ className: "icon-btn-redes" }}>
+          {socialNetworksList[socialNetwork].element}
+        </IconContext.Provider>
+      </a>
     </IconContext.Provider>
   );
 };

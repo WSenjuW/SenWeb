@@ -14,16 +14,22 @@ export const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div id="navBox">
-      <button
-        id="btnMain"
-        onClick={() => {
-          setShowNav(!showNav);
-        }}
+    <div
+      id="navBox"
+      onMouseEnter={() => {
+        setShowNav(true);
+      }}
+      onMouseLeave={() => {
+        setShowNav(false);
+      }}
+    >
+      <button id="btnMain"
+      onClick={()=>{showNav === true ?  setShowNav(false) : setShowNav(true)}}
       >
         <div
           id="triangulo"
           style={{ transform: !showNav ? "rotate(180deg)" : "rotate(0deg)" }}
+          
         />
       </button>
       {showNav !== false &&

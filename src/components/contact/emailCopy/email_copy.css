@@ -1,0 +1,58 @@
+#email-box {
+  background: linear-gradient(45deg, transparent 5%, #ad00ff 5%);
+  width: max-content;
+  padding: 20px 60px 20px 30px;
+  font-family: "Chakra Petch", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 1.2rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+#btn-copy-email {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  position: absolute;
+  border-radius: 20px;
+  right: 10px;
+  transition: 0.05s;
+  background: transparent;
+}
+
+#btn-copy-email:hover {
+  background-color: #ffffff6c;
+}
+
+#btn-copy-email:active {
+  transform: scale(0.7);
+}
+
+#copied {
+  content: "Copied";
+  width: max-content;
+  margin: 0;
+  padding: 0 10px;
+  height: 30px;
+  background-color: #00ff4c;
+  color: #000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: 0.2s;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 1000px) {
+  #email-box {
+    height: 30px !important;
+    padding: 10px 50px 10px 20px;
+  }
+  
+}

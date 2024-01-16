@@ -1,17 +1,162 @@
-#marcoBox {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    position: absolute;
-    left: 0;
-    top: 0;
+#svg_marco {
+  width: 0;
+  height: 0;
+  position: absolute;
+  display: none;
+}
+
+#marcoBottom,
+#marcoRight,
+#marcoLeft,
+#marcoTop {
+  z-index: 1;
+}
+
+#marcoRight {
+  width: 20px;
+  height: 80%;
+  background-color: #ffff00;
+  clip-path: url(#CP_marcoRight);
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffff00 50%, transparent 50%);
+  background-size: 0 0;
+  background-repeat: no-repeat;
+  animation: start-marco 1s 1.5s linear both;
+}
+
+#marcoBottom {
+  width: calc(100% - 50px);
+  height: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ffff00;
+  clip-path: url(#CP_marcoBottom);
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffff00 50%, transparent 50%);
+  background-size: 0 0;
+  background-repeat: no-repeat;
+  animation: start-marco 1s 1.5s linear both;
+}
+
+#marcoLeft {
+  height: calc(100% - 40px);
+  width: 20px;
+  position: absolute;
+  left: 20px;
+  background-color: #ffff00;
+  clip-path: url(#CP_marcoLeft);
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffff00 50%, transparent 50%);
+  background-size: 0 0;
+  background-repeat: no-repeat;
+  animation: start-marco 1s 1s linear both;
+}
+
+#marcoTop {
+  width: 85%;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: auto;
+  clip-path: url(#CP_marcoTop);
+  background: linear-gradient(135deg, #ffff00 50%, transparent 50%);
+  background-size: 0 0;
+  background-repeat: no-repeat;
+  animation: start-marco 1s 1s linear both;
+}
+
+@keyframes start-marco {
+  from {
+    background-size: 0px 0px;
   }
-  
-  
-  #hola{
-    display: block;
-    margin: auto;
+  to {
+    background-size: 200vw 200vh;
   }
+}
+
+@media only screen and (max-width: 800px) {
+  #marcoRight {
+    height: calc(90% - 50px);
+    width: 13px;
+    right: 13px;
+    bottom: 13px;
+  }
+  #marcoTop {
+    width: calc(91% - 20px);
+    left: 13px;
+    top: 13px;
+    height: 13px;
+  }
+  #marcoLeft {
+    height: calc(100% - 26px);
+    top: 13px;
+    width: 13px;
+    left: 13px;
+  }
+
+  #marcoBottom {
+    width: calc(100% - 26px);
+    left: 13px;
+    height: 13px;
+    bottom: 13px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  #marcoRight,
+  #marcoTop,
+  #marcoLeft,
+  #marcoBottom {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 760px) {
+  #marcoRight {
+    height: calc(90% - 50px);
+    width: 13px;
+    right: 13px;
+    bottom: 13px;
+  }
+  #marcoTop {
+    width: calc(91% - 20px);
+    left: 13px;
+    top: 13px;
+    height: 13px;
+  }
+  #marcoLeft {
+    height: calc(100% - 26px);
+    top: 13px;
+    width: 13px;
+    left: 13px;
+  }
+
+  #marcoBottom {
+    width: calc(100% - 26px);
+    left: 13px;
+    height: 13px;
+    bottom: 13px;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  #marcoRight {
+    display: none;
+  }
+  #marcoTop {
+    display: none;
+  }
+  #marcoLeft {
+    display: none;
+  }
+
+  #marcoBottom {
+    display: none;
+  }
+}

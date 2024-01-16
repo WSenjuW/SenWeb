@@ -1,44 +1,435 @@
-#skillsBox {
-  width: 100%;
-  height: 100%;
-  background: #121212; /* Fallback for browsers that don't support gradients */
+
+#container-skill {
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(
     135deg,
-    #2c0d2c 25%,
-    #380547 25%,
-    #380547 50%,
-    #2c0d2c 50%,
-    #2c0d2c 75%,
-    #380547 75%,
-    #380547
+    #D9D0BF 25%,
+    #736656 25%,
+    #736656 50%,
+    #D9D0BF 50%,
+    #D9D0BF 75%,
+    #736656 75%,
+    #736656
   );
-  background-size: 40px 40px;
-
-  /* Animation */
-  animation: move 6s linear infinite;
+  background-size:100px 100px;
+  animation: move 2s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+  overflow: hidden;
 }
 
-#skillsBox::before {
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+#container-skill::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    #000000d7 70%,
-    #0000009a 80%,
-    #0f0f0f0e 100%
-  );
-  z-index: 2;
+  background: linear-gradient(270deg, #00000098 70%, transparent 70%);
 }
-@keyframes move {
+
+#skillModalBox {
+  width: 80vw;
+  max-width: 1200px;
+  height: 60vh;
+  max-height: 550px;
+  background: linear-gradient(
+    135deg,
+    transparent 5%,
+    red 5%,
+    red 95%,
+    transparent 95%
+  );
+  display: flex;
+  align-items: center;
+  position: relative;
+  animation: start-skillModal 0.4s linear;
+}
+
+@keyframes start-skillModal {
   0% {
-    background-position: 0 0;
+    width: 2%;
+    height: 2vw;
+  }
+  30% {
+    width: 2%;
+    height: 80%;
   }
   100% {
-    background-position: 40px 40px;
+    width: 100%;
+    height: 80%;
+  }
+}
+
+#skillModalBox::before {
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  left: -100px;
+  top: -50px;
+  position: absolute;
+  background-color: transparent;
+  background-image: radial-gradient(#e209ff 10%, transparent 10%),
+    radial-gradient(#0cff0c 10%, transparent 10%);
+  background-size: 50px 50px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 10%, 10% 0);
+  background-position: 0 0, 50px 50px;
+  animation: start-skillModal-before 0.5s 0.7s linear,
+    skillModal-before 4s 4s linear infinite;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes skillModal-before {
+  0% {
+    transform: translate(-50px, 120px);
+    filter: drop-shadow(-5px -5px #ff00ea);
+    z-index: -1;
+  }
+  2% {
+    transform: translate(120px, -60px);
+    filter: drop-shadow(5px 5px #03f7ff);
+    z-index: -1;
+  }
+  4% {
+    transform: translate(80px, 30px);
+    filter: drop-shadow(-5px -5px #ff0000);
+    z-index: 1;
+  }
+  6% {
+    transform: translate(0, 0);
+    filter: none;
+    z-index: -1;
+  }
+  100% {
+    transform: translate(0, 0);
+    filter: (none);
+    z-index: -1;
+  }
+}
+
+@keyframes start-skillModal-before {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    z-index: 1;
+  }
+  80% {
+    opacity: 1;
+    z-index: 1;
+    transform: translate(40px, -20px);
+  }
+  90% {
+    opacity: 1;
+    z-index: 1;
+    transform: translate(-70px, 80px);
+  }
+  100% {
+    opacity: 1;
+    z-index: -1;
+  }
+}
+
+#tec-skills {
+  width: calc(50% + 20px);
+  height: 90%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  animation: start-list-languages 0.01s 0.8s linear both;
+}
+
+@keyframes start-list-languages {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.tec-skills-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-left: 100px;
+  font-size: 1.3rem;
+  padding: 5px 8px;
+  cursor: pointer;
+  width: 160px;
+  position: relative;
+  line-height: 16px;
+  transition: 0.1s;
+  color: #f1f1f1;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+}
+.tec-skills-item:hover {
+  background-color: #0051ffb9;
+  color: #ff00ff;
+}
+
+#soft_skills {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff79 92%, transparent 92%);
+  position: relative;
+  animation: start-soft-skills 0.8s 0.5s linear both;
+  animation-timing-function: steps(2, end);
+  transform: translate(10px, 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes start-soft-skills {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  10% {
+    opacity: 1;
+    text-shadow: none;
+  }
+  20% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  30% {
+    opacity: 1;
+    text-shadow: none;
+  }
+  80% {
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: -5px -2px #ffffff70;
+  }
+}
+
+#soft_skills_ul {
+  height: 80%;
+  width: 60%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#soft_skills_li_dev {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  text-shadow: -4px -4px #f1f1f162;
+  color: #f1f1f1;
+
+}
+
+#soft_skills_li_ill {
+  font-family: "Fredericka the Great", serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  text-shadow: none;
+  letter-spacing: 1.5px;
+  color: #f1f1f1;
+
+}
+
+#error-icon {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  text-shadow: none;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+
+}
+
+#hover_skills {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.iconHoverSkills {
+  font-size: 10rem;
+}
+
+#icon_hover_skills {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  font-size: 13rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  filter: drop-shadow(-6px -4px #f1f1f157);
+  animation: start-IHS 0.2s linear;
+  position: relative;
+  color: #f1f1f1;
+
+}
+
+@keyframes start-IHS {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+#p_hover_skills {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  font-size: 2rem;
+  font-family: "Chakra Petch", sans-serif;
+  text-shadow: -3px -3px #f1f1f18a;
+  color: #f1f1f1;
+  user-select: none;
+  opacity: 0;
+  animation: start-PHS 0.2s 0.1s linear both;
+}
+
+@keyframes start-PHS {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@media only screen and (max-width: 1341px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  #soft_skills {
+    width: 60%;
+  }
+  #tec-skills {
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .tec-skills-item {
+    width: 110px;
+    margin: 0 0 0 2vw;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  #skillModalBox {
+    width: 90vw !important;
+  }
+  html {
+    font-size: 70%;
+  }
+  #skillModalBox {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 452px) {
+  #soft_skills_ul {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-height: 720px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  #container-skill {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around !important;
+  }
+
+  #skillModalBox{
+    width: 70%;
+    height: 80%;
+  }
+}
+
+@media only screen and (max-height: 445px) {
+  #tec-skills{
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    width: 40%;
+  }
+  .tec-skills-item{
+    margin: 0;
+    width: 100px;
+
+  }
+  #soft_skills{
+    width: 60%;
+  }
+
+  #soft_skills_ul{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  #soft_skills_li_dev{
+    width: max-content;
+    margin: 0;
   }
 }

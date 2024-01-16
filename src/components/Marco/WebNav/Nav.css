@@ -1,6 +1,6 @@
 #navBox {
   position: absolute;
-  top: 2.2%;
+  top: 0%;
   width: 16%;
   max-width: 200px;
   min-width: 60px;
@@ -8,17 +8,19 @@
   flex-direction: column;
   justify-content: center;
   gap: 2px 0;
+  z-index: 1;
 }
 
 #btnMain {
-  width: 100%;
+  width: 126%;
   height: 50px;
   display: flex;
+  align-self: center;
   align-content: center;
   justify-content: center;
-  background: #ffff00;
-  z-index: 10;
-  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+  z-index: 1;
+  background-color: #ffff00;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
   transition: 0.3s;
 }
 
@@ -28,15 +30,47 @@
   height: 20px;
   align-self: center;
   transition: 0.2s;
-  background-color: #ff013c;
+  background-color: #ff0022;
   transition: 0.3s;
   border-radius: 5px;
 }
 
-#btnMain:hover {
-  background-color: #ff013c;
+
+@media only screen and (max-width: 800px) {
+  #navBox {
+    width: 140px;
+    right: 1px;
+    align-self: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  #btnMain {
+    height: 34px;
+    width: 140px;
+  }
+  #triangulo {
+    width: 30px;
+    height: 15px;
+  }
 }
 
-#btnMain:hover > #triangulo {
-  background-color: #ffff00;
+@media only screen and (max-height: 760px) {
+  #navBox {
+    width: 160px;
+    right: 1px;
+    align-self: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+  }
+  #btnMain {
+    height: 30px;
+    width: 160px;
+  }
+  #triangulo {
+    width: 30px;
+    height: 15px;
+  }
 }
