@@ -6,7 +6,7 @@
   min-width: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   gap: 2px 0;
   z-index: 1;
 }
@@ -38,7 +38,7 @@
 
 @media only screen and (max-width: 800px) {
   #navBox {
-    width: 140px;
+    width: 130px;
     right: 1px;
     align-self: center;
     left: 0;
@@ -47,7 +47,6 @@
   }
   #btnMain {
     height: 34px;
-    width: 140px;
   }
   #triangulo {
     width: 30px;

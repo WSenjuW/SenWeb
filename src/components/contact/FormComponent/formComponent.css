@@ -185,7 +185,7 @@
   user-select: none;
 }
 
-#email-input-box :is(input:focus, input:valid) ~ label {
+#email-input-box :is(input:focus) ~ label {
   top: -1.4rem;
 }
 
