@@ -1,33 +1,115 @@
-import { useState, useEffect } from "react";
+import { useReducer } from "react";
 import "./formComponent.css";
 
+// const erroresText = {
+//   name: [
+//     "Tu nombre tiene números?, aquí no hacemos eso",
+//     "Tu nombre tiene caracteres especiales?, aquí no hacemos eso",
+//   ],
+//   email: [
+//     "El correo ingresado no cumple con los requisitos de un email, un ejemplo: example@gmail.com",
+//   ],
+// };
+
+// Estructura de FormList estructure........................................................
+
+type initialStateFormListType = {
+  [index: string]: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+type actionTypeFormList = {
+  propToUpdate: string;
+  item: string;
+};
+const I_S_FormItems = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+function redFormItems(
+  state: initialStateFormListType,
+  action: actionTypeFormList
+) {
+  state[action.propToUpdate] = action.item;
+
+  return state;
+}
+
+// ..........................................................................................
+// ..........................................
+// Validations estructure.......................................................................
+
+type I_S_Validations = {
+  [index: string]: boolean | undefined | initialStateFormListType;
+  name: undefined | boolean;
+  email: undefined | boolean;
+  subject: undefined | boolean;
+  message: undefined | boolean;
+};
+
+type actionValidationType = {
+  type: string;
+  item: undefined | boolean | initialStateFormListType;
+};
+
+const I_S_validations: I_S_Validations = {
+  name: undefined,
+  email: undefined,
+  subject: undefined,
+  message: undefined,
+};
+
+function redValidations(
+  state: I_S_Validations,
+  { item, type }: actionValidationType
+) {
+  // const REGEX_NAME = /^[ a-zA-Z.]{3,40}$/g;
+  // const REGEX_EMAIL = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,100}$/g;
+
+  switch (type) {
+    case "CHECKED_FORM_GRAL":
+      {
+      }
+      break;
+    case "UPDATE_ELEMENT":
+      {
+        state[type] = item;
+      }
+      break;
+    default:
+      return state;
+      break;
+  }
+  return state;
+}
+// ..........................................................................................
+
+function COLOR_LABEL(e: undefined | boolean) {
+  let colorSelected;
+  if (e === undefined) colorSelected = "#fff";
+  if (e === false) colorSelected = "#ff0000";
+  if (e === true) colorSelected = "#15ff00";
+
+  return colorSelected;
+}
+
+// ===============================================================    START COMPONENT   =========================================================================================================
+
 export default function FormComponent() {
-  const [Name, setName] = useState<string>("");
-  const [Email, setEmail] = useState<string>("");
-  const [Subject, setSubject] = useState<string>("");
-  const [Message, setMessage] = useState<string>("");
+  const [FormItems, dispatchList] = useReducer(redFormItems, I_S_FormItems);
+  const [Validations, dispValidations] = useReducer(
+    redValidations,
+    I_S_validations
+  );
 
-  useEffect(() => {
-    console.log({
-      name: Name,
-      email: Email,
-      subject: Subject,
-      message: Message,
-    });
-  }, [Name, Email, Subject, Message]);
-
-  function handleOnChangeName(e: any) {
-    setName((e.target as HTMLInputElement).value);
-  }
-
-  function handleOnChangeEmail(e: any) {
-    setEmail((e.target as HTMLInputElement).value);
-  }
-  function handleOnChangeSubject(e: any) {
-    setSubject((e.target as HTMLInputElement).value);
-  }
-  function handleOnChangeMessage(e: any) {
-    setMessage((e.target as HTMLInputElement).value);
+  function validationForm(e: HTMLFormElement) {
+    e.preventDefault();
+    dispValidations({ type: "CHECKED_FORM_GRAL", item: FormItems });
   }
 
   return (
@@ -39,43 +121,83 @@ export default function FormComponent() {
             type="text"
             placeholder="Name"
             required
-            maxLength={24}
-            pattern="[a-z]{3,20}"
-            onChange={(e) => handleOnChangeName(e)}
+            maxLength={40}
+            onChange={(e) =>
+              dispatchList({ propToUpdate: "name", item: e.target.value })
+            }
           />
-          <label style={{ top: Name != "" ? "-1.4rem" : "" }}>Name</label>
+          <label
+            style={{
+              color: COLOR_LABEL(Validations.name),
+              top: FormItems.name !== "" ? "-1.4em" : "",
+            }}
+          >
+            Name
+          </label>
+          <p id="inputAlert"></p>
         </div>
         <div id="email-input-box">
           <input
-            onChange={handleOnChangeEmail}
+            onChange={(e) =>
+              dispatchList({ propToUpdate: "email", item: e.target.value })
+            }
             required
             type="email"
             maxLength={50}
             placeholder="Email"
           />
-          <label style={{ top: Email != "" ? "-1.4rem" : "" }}>Email</label>
+          <label
+            style={{
+              color: COLOR_LABEL(Validations.email),
+              top: FormItems.email != "" ? "-1.4rem" : "10px",
+            }}
+          >
+            Email
+          </label>
         </div>
       </div>
       <div id="subject-input-box">
         <input
           maxLength={25}
-          onChange={handleOnChangeSubject}
+          onChange={({ target }) =>
+            dispatchList({ propToUpdate: "subject", item: target.value })
+          }
           type="text"
           placeholder="Subject"
           required
         />
-        <label style={{ top: Subject != "" ? "-1.4rem" : "" }}>Subject</label>
+        <label
+          style={{
+            color: COLOR_LABEL(Validations.subject),
+            top: FormItems.subject !== "" ? "-1.4em" : "",
+          }}
+        >
+          Subject
+        </label>
       </div>
       <div id="message-input-box">
         <textarea
           maxLength={1100}
-          onChange={handleOnChangeMessage}
+          minLength={20}
+          onChange={({ target }) =>
+            dispatchList({ propToUpdate: "message", item: target.value })
+          }
           required
           placeholder="Message"
         />
-        <label style={{ top: Message != "" ? "-1.4rem" : "" }}>Message</label>
+        <label
+          style={{
+            color: COLOR_LABEL(Validations.message),
+            top: FormItems.message !== "" ? "-1.4em" : "",
+          }}
+        >
+          Message
+        </label>
+        <p id="messageLength">{FormItems.message.length} / 1100</p>
       </div>
-      <button id="btn-send-form">SEND</button>
+      <button id="btn-send-form" onClick={validationForm}>
+        SEND
+      </button>
     </form>
   );
 }

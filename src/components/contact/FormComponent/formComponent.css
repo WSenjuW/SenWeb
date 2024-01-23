@@ -134,8 +134,7 @@
   margin: auto auto auto;
   transition: 0.3s;
   color: #44fadd;
-
-  user-select: none;
+  user-select: none ;
 }
 
 #name-input-box :is(input:focus, input:valid) ~ label {
@@ -186,7 +185,7 @@
 }
 
 #email-input-box :is(input:focus) ~ label {
-  top: -1.4rem;
+  top: -1.4rem !important;
 }
 
 #subject-input-box {
@@ -281,6 +280,15 @@
 
 #message-input-box :is(textarea:focus, textarea:valid) ~ label {
   top: -1.4rem;
+}
+
+#messageLength{
+  user-select: none;
+  width: max-content;
+  position: absolute;
+  right: 0;
+  bottom: -2.2rem;
+  font-size: .8em;
 }
 
 #btn-send-form,
