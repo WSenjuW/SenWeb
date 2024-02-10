@@ -28,8 +28,134 @@
   }
 }
 
-#form-box::after,
-#form-box::before {
+#loaderContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#loaderContent h1 {
+  margin: 0;
+  width: min-content;
+  font-size: 2.2em;
+  font-family: "Chakra Petch", sans-serif;
+  line-height: 60px;
+  font-weight: 200;
+  font-size: 2/3em;
+  background: repeating-linear-gradient(
+    0deg,
+    #fff00f 0px,
+    #fff00f 2px,
+    transparent 3px,
+    transparent 3.5px
+  );
+  text-transform: uppercase;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: startTitleLoader 0.3s linear backwards;
+}
+
+@keyframes startTitleLoader {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: startTitleLoaderIcon 0.3s linear backwards;
+}
+
+@keyframes startTitleLoaderIcon {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.jimu-primary-loading:before,
+.jimu-primary-loading:after {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
+.jimu-primary-loading:before {
+  left: -19.992px;
+}
+
+.jimu-primary-loading:after {
+  left: 19.992px;
+  -webkit-animation-delay: 0.32s !important;
+  animation-delay: 0.32s !important;
+}
+
+.jimu-primary-loading:before,
+.jimu-primary-loading:after,
+.jimu-primary-loading {
+  background: #ffff00;
+  -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  width: 13.6px;
+  height: 32px;
+}
+
+.jimu-primary-loading {
+  text-indent: -9999em;
+  margin: auto;
+  position: absolute;
+  right: calc(50% - 6.8px);
+  top: calc(50% - 16px);
+  -webkit-animation-delay: 0.16s !important;
+  animation-delay: 0.16s !important;
+}
+
+@-webkit-keyframes loading-keys-app-loading {
+  0%,
+  80%,
+  100% {
+    opacity: 0.75;
+    box-shadow: 0 0 #ffff00;
+    height: 32px;
+  }
+
+  40% {
+    opacity: 1;
+    box-shadow: 0 -8px #ffff00;
+    height: 40px;
+  }
+}
+
+@keyframes loading-keys-app-loading {
+  0%,
+  80%,
+  100% {
+    opacity: 0.75;
+    box-shadow: 0 0 #ffff00;
+    height: 32px;
+  }
+  40% {
+    opacity: 1;
+    box-shadow: 0 -8px #ffff00;
+    height: 40px;
+  }
+}
+
+form::after,
+form::before {
   content: "";
   width: 50px;
   height: 50px;
@@ -42,7 +168,7 @@
   z-index: 0;
 }
 
-#form-box::before {
+form::before {
   border: solid 3px white;
   border-top: none;
   border-left: none;
@@ -52,8 +178,16 @@
   bottom: 2vh;
 }
 
+
+#formContentInputs{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 #title-form {
-  z-index: 1;
   margin: 0;
   padding: 0;
   font-size: 2.4em;
@@ -75,6 +209,13 @@
   }
 }
 
+#messageStatusInfo{
+  /* background-color: red; */
+  font-family: "Chakra Petch", sans-serif;
+  color: #ffff00;
+  font-size: 2em;
+}
+
 #name-email-box {
   width: 100%;
   height: 40px;
@@ -82,7 +223,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  animation: start-name-email-box 0.1s 0.2s linear both;
+  animation: start-name-email-box 0.1s 0.2s linear backwards;
+  position: relative;
 }
 
 @keyframes start-name-email-box {
@@ -134,11 +276,37 @@
   margin: auto auto auto;
   transition: 0.3s;
   color: #44fadd;
-  user-select: none ;
+  user-select: none;
 }
 
 #name-input-box :is(input:focus, input:valid) ~ label {
   top: -1.4rem;
+}
+
+.inputAlert {
+  background-color: #ffff00;
+  color: #323232;
+  width: 90%;
+  height: calc(auto - 2vh);
+  position: absolute;
+  margin: 0;
+  left: 0;
+  bottom: 100%;
+  z-index: 10000;
+  padding: 1vh 2vw;
+  font-size: 0.9em;
+}
+.inputAlert::before {
+  content: "";
+  background-color: #ffff00;
+  position: absolute;
+  height: 10px;
+  width: 20px;
+  left: 5%;
+  top: -8px;
+  z-index: 10000;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: -1;
 }
 
 #email-input-box {
@@ -171,7 +339,6 @@
   letter-spacing: 1px;
   font-size: 1rem;
   user-select: none;
-
 }
 
 #email-input-box label {
@@ -180,7 +347,7 @@
   top: 10px;
   margin: auto auto auto;
   transition: 0.3s;
-  color: #44FADD;
+  color: #44fadd;
   user-select: none;
 }
 
@@ -204,7 +371,7 @@
   background: linear-gradient(45deg, #323232 97%, transparent 97%);
   border: none;
   padding-left: 10px;
-  color: #44FADD;
+  color: #44fadd;
   outline: none;
   font-family: "Chakra Petch", sans-serif;
   letter-spacing: 1px;
@@ -225,7 +392,7 @@
   left: 10px;
   top: 10px;
   transition: 0.3s;
-  color: #44FADD;
+  color: #44fadd;
   user-select: none;
 }
 
@@ -249,7 +416,7 @@
   height: 100%;
   background: linear-gradient(45deg, #323232 97%, transparent 97%);
   border: none;
-  color: #44FADD;
+  color: #44fadd;
   padding: 20px 16px;
   box-sizing: border-box;
   resize: none;
@@ -266,7 +433,6 @@
   letter-spacing: 1px;
   font-size: 1rem;
   user-select: none;
-
 }
 
 #message-input-box label {
@@ -274,7 +440,7 @@
   left: 10px;
   top: 10px;
   transition: 0.3s;
-  color: #44FADD;
+  color: #44fadd;
   user-select: none;
 }
 
@@ -282,13 +448,13 @@
   top: -1.4rem;
 }
 
-#messageLength{
+#messageLength {
   user-select: none;
   width: max-content;
   position: absolute;
   right: 0;
   bottom: -2.2rem;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 #btn-send-form,
@@ -482,21 +648,18 @@
   }
 }
 
-
-
-
 @media only screen and (max-height: 500px) {
   #name-input-box input::placeholder {
-    color:#44FADD
+    color: #44fadd;
   }
   #email-input-box input::placeholder {
-    color: #44FADD
+    color: #44fadd;
   }
   #subject-input-box input::placeholder {
-    color: #44FADD
+    color: #44fadd;
   }
   #message-input-box textarea::placeholder {
-    color: #44FADD
+    color: #44fadd;
   }
   #name-input-box label {
     display: none;

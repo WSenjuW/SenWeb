@@ -172,8 +172,10 @@
     opacity: 0;
     transform: translateX(50px);
     color: transparent;
+    z-index: 1;
   }
   100%{
+    z-index: 1;
     opacity: 1;
     transform: translateX(0px);
   }
@@ -195,7 +197,10 @@
   top: -3px;
   z-index: -1;
   border-radius: 3px 3px 0 0;
+  animation: startS2Before .3s .8s linear backwards;
 }
+
+
 
 #s2_Services::after {
   content: "";
@@ -213,8 +218,18 @@
   bottom: -3px;
   z-index: -1;
   border-radius: 0 0 3px 3px;
+  animation: startS2Before .3s .8s linear backwards;
+
 }
 
+@keyframes startS2Before {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
 #s2_Services h2 {
   margin: 0;
   font-weight: 700;

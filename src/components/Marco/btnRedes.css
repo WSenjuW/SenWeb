@@ -8,17 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1px #3672cce7;
-  border-radius: 0 0 20px 0;
   position: absolute;
   right: 3%;
   top: 3%;
-  background: #0026ff;
+  background: linear-gradient(135deg, #0026ff, #0026ff 90%, transparent 90%);
   z-index: 1;
-}
-
-#linkA:hover {
-  border: solid 1px #2e4dff79;
 }
 
 .icon-btn-redes {
@@ -125,17 +119,15 @@
     top: 5px;
     right: 10px;
   }
-  
+
   .icon-btn-redes {
     font-size: 2.5em;
     color: #f1f1f1;
     transition: 0.2s;
   }
-
 }
 
 @media only screen and (max-height: 500px) {
-
   #linkA,
   #linkA::after {
     height: 30px;
@@ -145,7 +137,7 @@
     top: 5px;
     right: 10px;
   }
-  
+
   .icon-btn-redes {
     font-size: 2em;
     color: #f1f1f1;
